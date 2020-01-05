@@ -1,7 +1,7 @@
 import pytest
 from hamcrest import *
 
-from AdvancedAlgorithms.UseCase.graph import Graph
+from AdvancedAlgorithms.usecase.graph import Graph
 
 class TestGraph:
     def setup_method(self, method):

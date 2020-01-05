@@ -1,5 +1,5 @@
-from AdvancedAlgorithms.Entity.vertex import Vertex
-from AdvancedAlgorithms.Entity.edge import Edge
+from AdvancedAlgorithms.entity.vertex import Vertex
+from AdvancedAlgorithms.entity.edge import Edge
 
 class Graph:
 
