@@ -23,4 +23,12 @@ class Edge:
     @property
     def weight(self):
         return self.__weight
+
+    @weight.setter
+    def weight(self, weight):
+        self.__weight = weight
+
+    @is_directed.setter
+    def is_directed(self, is_directed):
+        self.__is_directed = is_directed
     

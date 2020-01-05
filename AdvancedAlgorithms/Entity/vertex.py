@@ -16,5 +16,8 @@ class Vertex:
     @property
     def edges(self):
         return self.__edges
-    
+
+    @edges.setter
+    def edges(self, edges):
+        self.__edges = edges
     
