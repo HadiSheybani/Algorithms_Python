@@ -22,4 +22,4 @@ class TestDFS:
         vertices_id = list()
         for vertex in output_vertices:
             vertices_id.append(vertex.ID)
-        assert_that(vertices_id, equal_to([0, 1, 3, 4, 2, 5]))
+        assert_that(vertices_id, equal_to([0, 2, 5, 1, 4, 3]))
