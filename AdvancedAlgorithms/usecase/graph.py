@@ -32,3 +32,33 @@ class Graph:
     @property
     def is_directed(self):
         return self.__is_directed
+
+    @vertices.setter
+    def vertices(self, vertices):
+        self.__vertices.clear()
+        self.__vertices = vertices
+    
+    @edges.setter
+    def edges(self, edges):
+        self.__edges.clear()
+        self.__edges = edges
+
+    def get_matrix(self):
+        graph_size = len(self.__vertices)
+        self.__sort_vertices()
+        matrix = [[0 for i in range(graph_size)] for j in range(graph_size)]
+        for edge in self.__edges:
+            row = self.__vertices.index(edge.source)
+            col = self.__vertices.index(edge.destination)
+            matrix[row][col] = edge.weight
+        return matrix
+    
+    def __sort_vertices(self):
+        sort_list = list()
+        for vertex in self.__vertices:
+            index = 0
+            for v in sort_list:
+                if (vertex.ID < v.ID):
+                    index = index + 1
+            sort_list.insert(index, vertex)
+        self.__vertices = sort_list.copy()
