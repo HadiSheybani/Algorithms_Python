@@ -20,6 +20,7 @@ class UndirectedCycleDetection:
             vertex = self.__queue.pop(len(self.__queue) - 1)
             self.__is_visited[vertex.ID] = True
             for edge in vertex.edges:
+                print(self.__parent_ID[vertex.ID], edge.destination.ID)
                 if not self.__is_visited[edge.destination.ID]:
                     self.__queue.append(edge.destination)
                     self.__parent_ID[edge.destination.ID] = vertex.ID

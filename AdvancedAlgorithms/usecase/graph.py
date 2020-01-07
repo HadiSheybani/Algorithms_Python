@@ -15,9 +15,14 @@ class Graph:
             self.__vertices.append(Vertex(i))
         for row in range(graph_size):
             for col in range(graph_size):
+                if not is_directed:
+                    if col < row:
+                        continue
                 if (graph_matrix[row][col] != 0):
                     edge = Edge(self.__vertices[row], self.__vertices[col], is_directed, graph_matrix[row][col])
                     self.__vertices[row].add_edge(edge)
+                    if not is_directed:
+                        self.__vertices[col].add_edge(Edge(self.__vertices[col], self.__vertices[row], is_directed, graph_matrix[row][col]))
                     self.__edges.append(edge)
         return self.__vertices.copy()
 
@@ -51,6 +56,8 @@ class Graph:
             row = self.__vertices.index(edge.source)
             col = self.__vertices.index(edge.destination)
             matrix[row][col] = edge.weight
+            if not self.is_directed:
+                matrix[col][row] = edge.weight
         return matrix
     
     def __sort_vertices(self):
@@ -58,7 +65,7 @@ class Graph:
         for vertex in self.__vertices:
             index = 0
             for v in sort_list:
-                if (vertex.ID < v.ID):
+                if (vertex.ID > v.ID):
                     index = index + 1
             sort_list.insert(index, vertex)
         self.__vertices = sort_list.copy()

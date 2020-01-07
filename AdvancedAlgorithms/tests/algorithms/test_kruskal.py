@@ -11,7 +11,6 @@ class TestKruskal:
         pass
 
     def test_GiveAGraphThenAlgorithmShouldReturnTheMinimumSpanningTree(self):
-        return
         graph = Graph()
         matric = [[0,   2,  6,  0,  5,  10, 0]
                  ,[2,   0,  0,  3,  3,  0,  0]
@@ -23,10 +22,10 @@ class TestKruskal:
         graph.create(matric, 7, False)
         kruskal = Kruskal()
         tree = kruskal.run(graph)
-        assert_that(tree, equal_to([[0, 2, 0, 0, 0, 0, 0]
-                                   ,[2, 0, 0, 3, 3, 0, 0]
-                                   ,[0, 0, 0, 1, 0, 2, 0]
-                                   ,[0, 3, 1, 0, 0, 0, 0]
-                                   ,[0, 3, 0, 0, 0, 0, 0]
-                                   ,[0, 0, 2, 0, 0, 0, 5]
-                                   ,[0, 0, 0, 0, 0, 5, 0]]))
+        assert_that(tree.get_matrix(), equal_to([[0, 2, 0, 0, 0, 0, 0]
+                                                ,[2, 0, 0, 3, 3, 0, 0]
+                                                ,[0, 0, 0, 1, 0, 2, 0]
+                                                ,[0, 3, 1, 0, 0, 0, 0]
+                                                ,[0, 3, 0, 0, 0, 0, 0]
+                                                ,[0, 0, 2, 0, 0, 0, 5]
+                                                ,[0, 0, 0, 0, 0, 5, 0]]))
